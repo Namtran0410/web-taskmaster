@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Case Manager</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Dự án</h2>
+      <ul id="project-list">
+      </ul>
+      <button id="add-project">+ Thêm Dự án</button>
+    </aside>
+
+    <main class="main">
+      <h1>Danh sách Test Case</h1>
+      <button id="add-testcase">+ Thêm Test Case</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên Case</th>
+            <th>Expected</th>
+            <th>Script</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="testcase-table">
+          <!-- Dữ liệu test case sẽ được render ở đây -->
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <!-- Popup Form cho dự án-->
+  <div class="popup" id="popup-form">
+    <div class="popup-content">
+      <h3>Thêm Test Case</h3>
+      <form id="testcase-form">
+        <input type="text" placeholder="Tên dự án" required>
+        <textarea placeholder="Description" required></textarea>
+        <input type="text" placeholder="Owner">
+        <div class="actions">
+          <button id="saveButtonProject" type="submit" onclick="savePopupProject()">Lưu</button>
+          <button type="button" onclick="closePopupProject()">Hủy</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<script src="/static/js/project.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ========== Sidebar ========== */
+.sidebar {
+  width: 240px;
+  background-color: #edf2ff; /* màu dịu nhẹ */
+  border-right: 1px solid #e2e8f0;
+  padding: 24px 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.03); /* bóng nhẹ */
+}
+
+.sidebar h2 {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar li:hover {
+  background-color: #dbeafe;
+  box-shadow: inset 0 0 0 1px #93c5fd;
+}
+
+.sidebar li.active {
+  background-color: #c7d2fe;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+.sidebar button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar button:hover {
+  background: #1e40af;
+}
+
+/* ========== Main ========== */
+.main {
+  flex: 1;
+  padding: 40px;
+  background-color: #f9fafb;
+  overflow-y: auto;
+}
+
+.main h1 {
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+.main button {
+  padding: 10px 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+.main button:hover {
+  background: #1d4ed8;
+}
+
+/* ========== Table ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+thead {
+  background-color: #e5e7eb;
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  font-weight: 600;
+  color: #1f2937; /* đậm hơn */
+}
+
+
+/* ========== Popup Form ========== */
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  width: 440px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.popup h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.popup input,
+.popup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  background: #f9fafb;
+}
+
+.popup textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.actions button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.actions button[type="submit"] {
+  background: #2563eb;
+  color: white;
+}
+
+.actions button[type="submit"]:hover {
+  background: #1d4ed8;
+}
+
+.actions button[type="button"] {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.actions button[type="button"]:hover {
+  background: #d1d5db;
+}
