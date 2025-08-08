@@ -20,6 +20,21 @@ document.addEventListener('DOMContentLoaded', async ()=> {
         },
         body: JSON.stringify(projectData)
     })
+    data= await res.json()
+    data.forEach(value => {
+        const projectValue= value['projectName']
+
+        if (!projectValue) return 
+
+        // tạo li và text content của li  
+        const newProject= document.createElement('li')
+        newProject.textContent= projectValue
+
+        // tạo list để hiển thị
+        const list= document.getElementById('project-list')
+        list.appendChild(newProject)
+
+    })
 })
 
 function closePopupProject(){
@@ -61,7 +76,7 @@ document.getElementById('saveButtonProject').addEventListener('click', async fun
         headers: {
             'Content-Type': 'application/json'
         }, 
-        body: JSON.stringify(projectData)
+        body: JSON.stringify(projectData[projectData.length - 1])
     })
 
 })

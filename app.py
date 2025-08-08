@@ -8,37 +8,48 @@ def index():
 
 @app.route('/reload', methods= ['GET','POST'])
 def loadingDataFromBegin():
-    data= request.get_json()
+    #1 mở liệu từ project.js
+
+    #1.1. tạo thư mục nếu chưa có --> tạo đến data
+    filePath= 'static/data/project.json'
+    os.makedirs(os.path.dirname(filePath), exist_ok= True)
+
+    #1.2. tạo file json nếu chưa có hoặc sai định dạng 
+    if not os.path.exists(filePath):
+        with open(filePath, 'w', encoding='utf-8') as f:
+            json.dump([], f, indent=2, ensure_ascii= False)
+    else:
+        # Kiểm tra nếu có rồi thì phải đúng định dạng
+        try: 
+            with open(filePath, 'r', encoding='utf-8') as f:
+                data= json.load(f)
+        except json.JSONDecodeError:
+            with open(filePath, 'w', encoding='utf-8') as f:
+                json.dump([], f, indent= 2, ensure_ascii= False)
+    
+    #2. Load dịnh dạng dữ liệu
+    with open(filePath, 'r', encoding= 'utf-8') as f:
+        data= json.load(f)
     return jsonify(data)
 
 @app.route('/save-project', methods=['GET','POST'])
 def savingDataProject():
-    data= request.get_json()
+    filePath= 'static/data/project.json'
+    #1. load data từ FE
+    res= request.get_json()
     
-    # tạo file nếu không có
-    file_path= 'static/data/project.json'
-    os.makedirs(os.path.dirname(file_path), exist_ok=True)
-
-    # nếu file không tồn tại 
-    if not os.path.exists(file_path):
-        with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump([], f, indent=2, ensure_ascii=False)
-    
-    # nếu file tồn tại nhưng sai định dạng json
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            fileDetail= json.load(f)
-
-            if not isinstance(fileDetail, list):
-                fileDetail= [fileDetail]
-
-    except (json.JSONDecodeError, ValueError):
-        fileDetail= []
-
-    with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent= 2, ensure_ascii= False)
-    
+    #2. lưu data, lưu nối tiếp
+    #2.1. Mở file: 
+    with open(filePath, 'r', encoding='utf-8') as f:
+        data= json.load(f)
+    if not isinstance(data, list):
+        data= [data]
+    if not isinstance(res, list):
+        res= [res]
+    data.extend(res)
+    with open(filePath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii= False)
     return jsonify(data)
-
+    
 if __name__ == '__main__':
     app.run(debug=True)
