@@ -2,28 +2,28 @@
   {
     "project-name": "Honda",
     "test-id": "Honda-001",
-    "test-name": "1",
+    "test-name": "Kiểm tra nhiệt độ",
     "status": "created",
     "create-date": "0001-01-01"
   },
   {
     "project-name": "Toyota",
     "test-id": "Toyota-001",
-    "test-name": "2",
+    "test-name": "Kiểm tra tốc độ bánh xe",
     "status": "created",
     "create-date": "0002-02-22"
   },
   {
     "project-name": "Honda",
     "test-id": "Honda-002",
-    "test-name": "1",
+    "test-name": "Kiểm tra tín hiệu",
     "status": "created",
     "create-date": "0001-01-01"
   },
   {
     "project-name": "Toyota",
     "test-id": "Toyota-002",
-    "test-name": "2",
+    "test-name": "Kiểm tra bánh đà",
     "status": "created",
     "create-date": "0002-02-22"
   }
