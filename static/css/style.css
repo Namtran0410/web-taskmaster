@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 * {
@@ -16,13 +17,12 @@ body {
   height: 100vh;
 }
 
-/* ========== Sidebar ========== */
 .sidebar {
   width: 240px;
-  background-color: #edf2ff; /* màu dịu nhẹ */
+  background-color: #edf2ff;
   border-right: 1px solid #e2e8f0;
   padding: 24px 20px;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.03); /* bóng nhẹ */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.03);
 }
 
 .sidebar h2 {
@@ -76,7 +76,6 @@ body {
   background: #1e40af;
 }
 
-/* ========== Main ========== */
 .main {
   flex: 1;
   padding: 40px;
@@ -105,7 +104,6 @@ body {
   background: #1d4ed8;
 }
 
-/* ========== Table ========== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -129,11 +127,9 @@ th, td {
 
 th {
   font-weight: 600;
-  color: #1f2937; /* đậm hơn */
+  color: #1f2937;
 }
 
-
-/* ========== Popup Form ========== */
 .popup {
   position: fixed;
   top: 0; left: 0;
@@ -150,7 +146,8 @@ th {
   background: white;
   padding: 28px;
   border-radius: 12px;
-  width: 440px;
+  width: 720px;
+  max-width: 95%;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
@@ -209,3 +206,107 @@ th {
 .actions button[type="button"]:hover {
   background: #d1d5db;
 }
+
+/* Step - Action - Expected Result */
+.step-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.step-row > input {
+  width: 25%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.step-row > textarea {
+  width: 37.5%;
+  min-height: 80px;
+  padding: 10px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.sidebar li.active {
+  background-color: #dbeafe;   /* màu xanh nhạt */
+  border: 1px solid #60a5fa;   /* viền xanh */
+  color: #1e3a8a;              /* chữ đậm hơn */
+  font-weight: 500;
+  border-radius: 8px;
+}
+/* Table column layout */
+table {
+  table-layout: fixed; /* Giúp các cột nhận width cụ thể */
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+  width: 6%; /* ID */
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 38%; /* Tên Case */
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 14%; /* Status */
+}
+
+th:nth-child(4),
+td:nth-child(4),
+th:nth-child(5),
+td:nth-child(5) {
+  width: 14%; /* Ngày */
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+  width: 14%; /* Action */
+  text-align: center;
+}
+
+.popup select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  background: #f9fafb;
+}
+.popup input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  background: #f9fafb;
+  color: #374151;
+}
+/* Làm đẹp cột Action */
+td.action-buttons {
+  white-space: nowrap;
+  text-align: center;
+}
+
+td.action-buttons button {
+  background-color: transparent !important;  /* Ghi đè bất kỳ background nào */
+  border: none !important;                  /* Gỡ bỏ viền */
+  font-size: 18px;
+  margin: 0 4px;
+  padding: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+td.action-buttons button:hover {
+  background-color: #e5e7eb !important;      /* Hover nền xám nhạt */
+  transform: scale(1.1);
+}
+
+

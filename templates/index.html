@@ -23,9 +23,10 @@
           <tr>
             <th>ID</th>
             <th>Tên Case</th>
-            <th>Expected</th>
-            <th>Script</th>
-            <th>Actions</th>
+            <th>Status</th>
+            <th>Created date</th>
+            <th>Finished date</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody id="testcase-table">
@@ -39,7 +40,7 @@
   <div class="popup" id="popup-form">
     <div class="popup-content">
       <h3>Thêm Test Case</h3>
-      <form id="testcase-form">
+      <form id="project-form">
         <input type="text" placeholder="Tên dự án" required>
         <textarea placeholder="Description" required></textarea>
         <input type="text" placeholder="Owner">
@@ -50,6 +51,57 @@
       </form>
     </div>
   </div>
+
+  <!-- Popup Form cho test case-->
+  <div class="popup" id="popup-form-test-case">
+    <div class="popup-content">
+      <h3>Thêm Test Case</h3>
+      <form id="test-case-form">
+        <!-- Mã Test Case -->
+        <input id="test-case-id-field" type="text" placeholder="Mã Test Case (VD: TC001)" required>
+
+        <!-- Tên Test Case -->
+        <input id="test-case-name-field" type="text" placeholder="Tên Test Case" required>
+
+        <!-- Description -->
+        <textarea placeholder="Mô tả (Description)" required></textarea>
+
+        <!-- Precondition -->
+        <textarea placeholder="Điều kiện tiên quyết (Precondition)" required></textarea>
+
+        <!-- Status dropdown -->
+        <select id="status-selector" required>
+          <option value="">Chọn trạng thái</option>
+          <option value="created">Created</option>
+          <option value="verifying">Verifying</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+          <option value="archived">Archived</option>
+        </select>
+
+        <!-- Ngày khởi tạo -->
+        <input type="date" id="start-date" placeholder="Ngày khởi tạo" required>
+        
+        <!-- Step - Action - Expected -->
+        <div class="step-row">
+          <input type="text" placeholder="Step" required>
+          <textarea placeholder="Action" required></textarea>
+          <textarea placeholder="Expected Result" required></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="add-step-btn">+ Step</button>
+          <button id="save-button-test-case" type="submit">Lưu</button>
+          <button type="button" onclick="closePopupProject()">Hủy</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
 <script src="/static/js/project.js"></script>
+<script src="/static/js/testcase.js"></script>
 </body>
 </html>

@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async ()=> {
 
 function closePopupProject(){
     document.getElementById('popup-form').style.display = 'none';
+    document.getElementById('popup-form-test-case').style.display= 'none'
 }
 
 function savePopupProject(){
@@ -56,7 +57,7 @@ function savePopupProject(){
     list.appendChild(newProject)
 
 
-    document.getElementById('testcase-form').reset()
+    document.getElementById('project-form').reset()
     closePopupProject()
 }
 
@@ -78,5 +79,5 @@ document.getElementById('saveButtonProject').addEventListener('click', async fun
         }, 
         body: JSON.stringify(projectData[projectData.length - 1])
     })
-
 })
+

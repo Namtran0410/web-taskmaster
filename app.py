@@ -30,6 +30,24 @@ def loadingDataFromBegin():
     #2. Load dịnh dạng dữ liệu
     with open(filePath, 'r', encoding= 'utf-8') as f:
         data= json.load(f)
+
+
+    #3. Tạo file test.json
+    testPath= 'static/data/test.json'
+    os.makedirs(os.path.dirname(filePath), exist_ok= True)
+
+    if not os.path.exists(testPath):
+        with open(testPath, 'w', encoding='utf-8') as f:
+            json.dump([], f, indent=2, ensure_ascii= False)
+    else: 
+        try: 
+            with open(testPath, 'r', encoding= 'utf-8') as f:
+                test_data= json.load(f)
+        except json.JSONDecodeError:
+            with open(testPath, 'w', encoding='utf-8') as f:
+                json.dump([], f, indent= 2, ensure_ascii= False)
+
+
     return jsonify(data)
 
 @app.route('/save-project', methods=['GET','POST'])
@@ -50,6 +68,33 @@ def savingDataProject():
     with open(filePath, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii= False)
     return jsonify(data)
-    
+
+@app.route('/add-test-case', methods= ['GET', 'POST'])
+def savingDataTestCase():
+    testPath= 'static/data/test.json'
+
+    #1. load data từ FE 
+    res= request.get_json()
+    with open(testPath, 'r', encoding= 'utf-8') as f:
+        data= json.load(f)
+    if not isinstance(data, list):
+        data= [data]
+    if not isinstance(res, list):
+        res= [res]
+    data.extend(res)
+    with open(testPath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+    with open(testPath, 'r' ,encoding='utf-8') as f:
+        return_data= json.load(f)
+    return jsonify(return_data)
+
+@app.route('/reload-test-case', methods= ['GET', 'POST'])
+def reloadTestCase():
+    testPath= 'static/data/test.json'
+    with open(testPath, 'r', encoding='utf-8') as f:
+        reloadData= json.load(f)
+    return jsonify(reloadData)
+
 if __name__ == '__main__':
     app.run(debug=True)
