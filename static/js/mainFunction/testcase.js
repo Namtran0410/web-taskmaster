@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', async ()=> {
                     <td>${item['create-date'] || ''}</td>
                     <td>${item['end-date'] || ''}</td>
                     <td>
-                    <button onclick="viewTestCase('TC001')" title="Xem">👁️</button>
-                    <button onclick="editTestCase('TC001')" title="Sửa">✏️</button>
-                    <button onclick="deleteTestCase('TC001')" title="Xoá">🗑️</button>
+                        <button class="btn-view" title="Xem">👁️</button>
+                        <button onclick="editTestCase('TC001')" title="Sửa">✏️</button>
+                        <button onclick="deleteTestCase('TC001')" title="Xoá">🗑️</button>
                     </td>
                     `
                     tableData.appendChild(row)
@@ -99,6 +99,17 @@ document.addEventListener('DOMContentLoaded', async ()=> {
             })
         }
     })
+})
 
-
+document.addEventListener('DOMContentLoaded', ()=> {
+    tableActions= document.getElementById('detail-row')
+    document.getElementById('add-step-btn').addEventListener('click', function(){
+        const row= document.createElement('div')
+        row.innerHTML= `
+            <input type="text" placeholder="Step" required>
+            <textarea placeholder="Action" required></textarea>
+            <textarea placeholder="Expected Result" required></textarea>
+        `
+        tableActions.appendChild(row)
+    })
 })

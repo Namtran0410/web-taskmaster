@@ -83,11 +83,14 @@
         <input type="date" id="start-date" placeholder="Ngày khởi tạo" required>
         
         <!-- Step - Action - Expected -->
-        <div class="step-row">
-          <input type="text" placeholder="Step" required>
-          <textarea placeholder="Action" required></textarea>
-          <textarea placeholder="Expected Result" required></textarea>
+        <div id="detail-row">
+          <div class="step-row">
+            <input type="text" placeholder="Step" required>
+            <textarea placeholder="Action" required></textarea>
+            <textarea placeholder="Expected Result" required></textarea>
+          </div>
         </div>
+
 
         <div class="actions">
           <button type="button" id="add-step-btn">+ Step</button>
@@ -98,10 +101,9 @@
     </div>
   </div>
 
+<script src="/static/js/mainFunction/project.js"></script>
+<script src="/static/js/mainFunction/testcase.js"></script>
+<script src="/static/js/action/view_test_case.js"></script>
 
-
-
-<script src="/static/js/project.js"></script>
-<script src="/static/js/testcase.js"></script>
 </body>
 </html>
